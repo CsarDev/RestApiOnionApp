@@ -29,20 +29,20 @@ namespace Services
                 throw new TodoItemNotFoundException(todoItemId);
             }
 
-            var accountDto = todoItem.Adapt<TodoItemDTO>();
+            var todoItemDto = todoItem.Adapt<TodoItemDTO>();
 
-            return accountDto;
+            return todoItemDto;
         }
 
         public async Task<IEnumerable<TodoItemDTO>> GetAllAsync(CancellationToken cancellationToken = default)
         {
             _unitOfWork = _resolver.Resolver();
 
-            var accounts = /*await*/ _unitOfWork.TodoItemRepository.GetAll();
+            var todoItems = /*await*/ _unitOfWork.TodoItemRepository.GetAll();
 
-            var accountsDto = accounts.Adapt<IEnumerable<TodoItemDTO>>();
+            var todoItemsDto = todoItems.Adapt<IEnumerable<TodoItemDTO>>();
 
-            return accountsDto;
+            return todoItemsDto;
         }
 
         public async Task<TodoItemDTO> CreateAsync(TodoItemForCreationDto todoItemForCreationDto, CancellationToken cancellationToken = default)

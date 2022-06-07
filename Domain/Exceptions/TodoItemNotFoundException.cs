@@ -5,7 +5,7 @@ namespace Domain.Exceptions
     public sealed class TodoItemNotFoundException : NotFoundException
     {
         public TodoItemNotFoundException(Guid todoItemId)
-            : base($"The account with the identifier {todoItemId} was not found.")    
+            : base($"The TodoItem with the identifier {todoItemId} was not found.")    
         {
         }
     }

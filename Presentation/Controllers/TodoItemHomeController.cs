@@ -5,7 +5,7 @@ using Services.Abstractions;
 namespace Presentation.Controllers
 {
     [ApiController]
-    [Route("api/todoItemsHome")]
+    [Route("api/[controller]")]
     public class TodoItemHomeController: ControllerBase
     {
         private readonly IServiceManager _serviceManager;
@@ -15,17 +15,17 @@ namespace Presentation.Controllers
         [HttpGet]
         public async Task<IActionResult> GetTodoItemsHome(CancellationToken cancellationToken)
         {
-            var accountsDto = await _serviceManager.TodoItemHomeService.GetAllAsync(cancellationToken);
+            var todoItemsHomeDto = await _serviceManager.TodoItemHomeService.GetAllAsync(cancellationToken);
 
-            return Ok(accountsDto);
+            return Ok(todoItemsHomeDto);
         }
 
         [HttpGet("{todoItemHomeId:guid}")]
         public async Task<IActionResult> GetTodoItemHomeById(Guid todoItemHome, CancellationToken cancellationToken)
         {
-            var accountDto = await _serviceManager.TodoItemHomeService.GetByIdAsync(todoItemHome, cancellationToken);
+            var todoItemHomeDto = await _serviceManager.TodoItemHomeService.GetByIdAsync(todoItemHome, cancellationToken);
 
-            return Ok(accountDto);
+            return Ok(todoItemHomeDto);
         }
 
         [HttpPost]
@@ -37,9 +37,9 @@ namespace Presentation.Controllers
         }
 
         [HttpDelete("{todoItemHomeId:guid}")]
-        public async Task<IActionResult> DeleteTodoItemHome(Guid accountId, CancellationToken cancellationToken)
+        public async Task<IActionResult> DeleteTodoItemHome(Guid todoItemHomeId, CancellationToken cancellationToken)
         {
-            await _serviceManager.TodoItemHomeService.DeleteAsync(accountId, cancellationToken);
+            await _serviceManager.TodoItemHomeService.DeleteAsync(todoItemHomeId, cancellationToken);
 
             return NoContent();
         }

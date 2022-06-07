@@ -15,7 +15,7 @@ namespace Persistence.UnitOfWork
 
 		public UnityContainerResolver()
 		{
-			container = new UnityContainer();
+			container = new UnityContainer().AddExtension(new Diagnostic()); ;
 			RegisterTypes();
 		}
 
