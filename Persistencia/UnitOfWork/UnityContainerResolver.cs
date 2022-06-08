@@ -22,8 +22,8 @@ namespace Persistence.UnitOfWork
 		public void RegisterTypes()
 		{
 			container.RegisterType(typeof(IRepository<>), typeof(GenericRepository<>));
-			container.RegisterType<ITodoItemRepository, TodoItemHomeRepository>();
-			//container.RegisterType<ITodoItemPgRepository, TodoItemPgRepository>();
+			container.RegisterType<ITodoItemHomeRepository, TodoItemHomeRepository>();
+			container.RegisterType<ITodoItemWorkRepository, TodoItemWorkRepository>();
 			container.AddNewExtension<DependencyOfDependencyExtension>();
 
 

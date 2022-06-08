@@ -5,7 +5,8 @@ namespace Domain.Repositories
 {
     public interface IUnitOfWork
     {
-        ITodoItemRepository TodoItemRepository { get; }
+        ITodoItemHomeRepository TodoItemHomeRepository { get; }
+        ITodoItemWorkRepository TodoItemWorkRepository { get; }
 
         //Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }

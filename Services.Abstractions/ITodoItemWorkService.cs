@@ -2,7 +2,7 @@
 
 namespace Services.Abstractions
 {
-    public interface ITodoItemService
+    public interface ITodoItemWorkService
     {
         Task<IEnumerable<TodoItemDTO>> GetAllAsync(CancellationToken cancellationToken = default);
 

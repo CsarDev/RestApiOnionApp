@@ -11,7 +11,7 @@ namespace Persistence.UnitOfWork
         protected override void Initialize()
         {
             Container.RegisterType<DbContext, TodoItemsHomeDbContext>();
-            //Container.RegisterType<DbContext, PostgresDbContext >();
+            Container.RegisterType<DbContext, TodoItemsWorkDbContext>();
         }
     }
 }

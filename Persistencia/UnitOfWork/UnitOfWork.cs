@@ -9,13 +9,13 @@ namespace Persistence.UnitOfWork
 {
     public class UnitOfWork: IUnitOfWork
     {
-        public ITodoItemRepository TodoItemRepository { get; private set; }
-        //public ITodoItemPgRepository TodoItemPgRepository { get; private set; }
+        public ITodoItemHomeRepository TodoItemHomeRepository { get; private set; }
+        public ITodoItemWorkRepository TodoItemWorkRepository { get; private set; }
 
-        public UnitOfWork(ITodoItemRepository todoItemRepository/*, ITodoItemPgRepository todoItemPgRepository*/)
+        public UnitOfWork(ITodoItemHomeRepository todoItemRepository, ITodoItemWorkRepository todoItemWorkRepository)
         {
-            TodoItemRepository = todoItemRepository;
-            //TodoItemPgRepository = todoItemPgRepository;
+            TodoItemHomeRepository = todoItemRepository;
+            TodoItemWorkRepository = todoItemWorkRepository;
         }
 
         //Todo this when UnitOfWork has a generic DbContext

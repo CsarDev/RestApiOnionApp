@@ -11,18 +11,18 @@ using Services.Abstractions;
 
 namespace Services
 {
-    internal sealed class TodoItemHomeService : ITodoItemHomeService
+    internal sealed class TodoItemWorkService : ITodoItemWorkService
     {
         private static IUnitOfWork _unitOfWork;
         private static IUnityContainerResolver _resolver;
 
-        public TodoItemHomeService(IUnityContainerResolver unityContainerResolver) => _resolver = unityContainerResolver;
+        public TodoItemWorkService(IUnityContainerResolver unityContainerResolver) => _resolver = unityContainerResolver;
 
         public async Task<TodoItemDTO> GetByIdAsync(Guid todoItemId, CancellationToken cancellationToken)
         {
             _unitOfWork = _resolver.Resolver();
 
-            var todoItem = /*await*/ _unitOfWork.TodoItemHomeRepository.Get(todoItemId/*, cancellationToken*/);
+            var todoItem = /*await*/ _unitOfWork.TodoItemWorkRepository.Get(todoItemId/*, cancellationToken*/);
 
             if (todoItem is null)
             {
@@ -38,7 +38,7 @@ namespace Services
         {
             _unitOfWork = _resolver.Resolver();
 
-            var todoItems = /*await*/ _unitOfWork.TodoItemHomeRepository.GetAll();
+            var todoItems = /*await*/ _unitOfWork.TodoItemWorkRepository.GetAll();
 
             var todoItemsDto = todoItems.Adapt<IEnumerable<TodoItemDTO>>();
 
@@ -50,7 +50,7 @@ namespace Services
             var todoItem = todoItemForCreationDto.Adapt<TodoItem>();
             _unitOfWork = _resolver.Resolver();
 
-            _unitOfWork.TodoItemHomeRepository.Insert(todoItem);
+            _unitOfWork.TodoItemWorkRepository.Insert(todoItem);
 
             //await _repositoryManager.UnitOfWork.SaveChangesAsync(cancellationToken);
 
@@ -61,7 +61,7 @@ namespace Services
         {
             _unitOfWork = _resolver.Resolver();
 
-            var todoItem = /*await*/ _unitOfWork.TodoItemHomeRepository.Get(todoItemId/*, cancellationToken*/);
+            var todoItem = /*await*/ _unitOfWork.TodoItemWorkRepository.Get(todoItemId/*, cancellationToken*/);
 
             if (todoItem is null)
             {
@@ -69,7 +69,7 @@ namespace Services
             }
 
 
-            _unitOfWork.TodoItemHomeRepository.Delete(todoItem);
+            _unitOfWork.TodoItemWorkRepository.Delete(todoItem);
 
             //await _repositoryManager.UnitOfWork.SaveChangesAsync(cancellationToken);
         }

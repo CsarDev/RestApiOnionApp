@@ -2,6 +2,7 @@
 {
     public interface IServiceManager
     {
-        ITodoItemService TodoItemHomeService { get; }
+        ITodoItemHomeService TodoItemHomeService { get; }
+        ITodoItemWorkService TodoItemWorkService { get; }   
     }
 }

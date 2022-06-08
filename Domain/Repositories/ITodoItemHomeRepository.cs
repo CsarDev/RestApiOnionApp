@@ -6,7 +6,7 @@ using Domain.Entities;
 
 namespace Domain.Repositories
 {
-    public interface ITodoItemRepository: IRepository<TodoItem>
+    public interface ITodoItemHomeRepository: IRepository<TodoItem>
     {
         
     }
