@@ -16,7 +16,7 @@ namespace WebTodoApi
         {
             var webHost = CreateHostBuilder(args).Build();
 
-            await ApplyMigrations(webHost.Services);
+            //await ApplyMigrations(webHost.Services);
 
             await webHost.RunAsync();
         }

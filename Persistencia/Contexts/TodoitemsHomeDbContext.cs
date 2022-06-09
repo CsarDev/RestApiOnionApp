@@ -17,7 +17,7 @@ namespace Persistence.Contexts
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=CSERRUDOH-DH01 ; Database=TodoHome; Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Data Source=172.31.208.1\\SQLEXPRESS,49172;Database=TodoHome;User ID=sa;Password=sa;MultipleActiveResultSets=true;");
             }
         }
 

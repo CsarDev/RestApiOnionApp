@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  webtodoapi:
+    image: ${DOCKER_REGISTRY-}webtodoapi
+    container_name: onionarchitecture_webtodoapi
+    build:
+      context: .
+      dockerfile: WebTodoAPI/Dockerfile
+    ports:
+        - 5000:80
+        #- 5001:443
+    depends_on:
+        - onionarchitecture.pgdb
+        #- onionarchitecture.sqlserverdb
+
+  onionarchitecture.pgdb:
+    image: postgres:13.2
+    container_name: onionarchitecture_pgdb
+    environment:
+      - POSTGRES_DB=TodoWork
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  #onionarchitecture.sqlserverdb:
+  #  container_name: sql-server-db
+  #  image: microsoft/mssql-server-linux:2017-latest
+  #  ports:
+  #    - "1433:1433"
+  #  environment:
+  #    SA_PASSWORD: "sa"
+  #    ACCEPT_EULA: "Y"

@@ -28,12 +28,12 @@ namespace WebTodoAPI
 
             services.AddScoped<IUnityContainerResolver, UnityContainerResolver>();
 
-            services.AddDbContextPool<TodoItemsHomeDbContext>(builder =>
-            {
-                var connectionString = Configuration.GetConnectionString("TIHomeDatabase");
+            //services.AddDbContextPool<TodoItemsHomeDbContext>(builder =>
+            //{
+            //    var connectionString = Configuration.GetConnectionString("TIHomeDatabase");
 
-                builder.UseSqlServer(connectionString);
-            });
+            //    builder.UseSqlServer(connectionString);
+            //});
 
             services.AddTransient<ExceptionHandlingMiddleware>();
         }

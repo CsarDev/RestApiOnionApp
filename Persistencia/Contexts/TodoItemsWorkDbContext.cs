@@ -5,7 +5,7 @@ namespace Persistence.Contexts
 {
     public sealed class TodoItemsWorkDbContext: DbContext
     {
-        private const string connectionString = "User ID =postgres;Password=postgres;Server=localhost;Port=5432;Database=TodoWork; Integrated Security=true;Pooling=true;";
+        private const string connectionString = "User ID =postgres;Password=postgres;Host=onionarchitecture.pgdb;Port=5432;Database=TodoWork; Integrated Security=true;Pooling=true;";
 
         public TodoItemsWorkDbContext(DbContextOptions<TodoItemsWorkDbContext> options)
             : base(options)
